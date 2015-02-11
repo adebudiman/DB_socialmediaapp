@@ -1,0 +1,190 @@
+/*********************
+ICONS
+*********************/
+
+@font-face {
+	font-family: "Flaticon";
+	src: url("../fonts/flaticon.eot");
+	src: url("../fonts/flaticon.eot#iefix") format("embedded-opentype"),
+	url("../fonts/flaticon.woff") format("woff"),
+	url("../fonts/flaticon.ttf") format("truetype"),
+	url("../fonts/flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+    @include rem(font-size, 1.5);
+    @include rem(width, 2.3);
+    color:  darken($blue, 15%);
+    display: inline-block;
+	font-style: normal;
+	text-align: center;
+
+}
+
+[class^="blueicon-"]:before, [class*=" blueicon-"]:before,
+[class^="blueicon-"]:after, [class*=" blueicon-"]:after {   
+	font-family: Flaticon;
+    @include rem(font-size, 1.25);
+    @include rem(width, 1.75);
+    color:  $blue;
+    display: inline-block;
+	font-style: normal;
+
+}
+
+[class^="navicon-"]:before, [class*=" navicon-"]:before,
+[class^="navicon-"]:after, [class*=" navicon-"]:after {   
+	font-family: Flaticon;
+    @include rem(font-size, 2);
+    //@include rem(width, 1.75);
+    color:  $mid-light-grey;
+    display: block;
+	font-style: normal;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+.flaticon-analytics5:before,
+.blueicon-analytics5:before,
+.navicon-analytics5:before  {
+	content: "\e000";
+}
+.flaticon-church2:before,
+.blueicon-church2:before,
+.navicon-church2:before  {
+	content: "\e001";
+}
+.flaticon-dashboard2:before,
+.blueicon-dashboard2:before,
+.navicon-dashboard2:before {
+	content: "\e002";
+}
+.flaticon-documents7:before,
+.blueicon-documents7:before,
+.navicon-documents7:before  {
+	content: "\e003";
+}
+.flaticon-facebook12:before,
+.blueicon-facebook12:before,
+.navicon-facebook12:before {
+	content: "\e004";
+}
+.flaticon-instagram3:before,
+.blueicon-instagram3:before,
+.navicon-instagram3:before {
+	content: "\e005";
+}
+.flaticon-logo4:before,
+.blueicon-logo4:before,
+.navcon-logo4:before  {
+	content: "\e006";
+}
+.flaticon-settings21:before,
+.blueicon-settings21:before,
+.navicon-settings21:before {
+	content: "\e007";
+}
+.flaticon-social19:before,
+.blueicon-social19:before,
+.navicon-social19:before {
+	content: "\e008";
+}
+.flaticon-support2:before,
+.blueicon-support2:before,
+.navicon-support2:before   {
+	content: "\e009";
+}
+.flaticon-user82:before,
+.blueicon-user82:before,
+.navicon-user82:before {
+	content: "\e00a";
+}
+
+.icon--large:before, .icon--large:after {
+	 @include rem(font-size, 1.75);
+	 @include rem(width, 2.5);
+}
+
+a.current-state [class^="navicon-"]:before, a.current-state [class*=" navicon-"]:before,
+a.current-state [class^="navicon-"]:after, a.current-state [class*=" navicon-"]:after {
+	color: $white;
+}
+
+a:hover [class^="flaticon-"]:before, a:hover [class*=" flaticon-"]:before,
+a:hover [class^="flaticon-"]:after, a:hover [class*=" flaticon-"]:after {
+	color: $blue;
+}
+
+.single-post__channel-icon {
+	@include rem(margin-right, 0.25);
+	@include rem(margin-top, -0.4);
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+
+.single-post__facebook-icon {
+	@extend .image-replacement;
+	@include rem(height, 2.5);
+	@include rem(width, 2.5);
+	@include rem(margin-right, 0.25);
+	@include rem(margin-top, -0.4);
+	display: inline-block;
+	float: left;
+	text-align: center;
+	background: url("../img/facebook-icon.svg") no-repeat;
+	
+}
+
+.single-post__twitter-icon {
+	@extend .image-replacement;
+	@include rem(height, 2.5);
+	@include rem(width, 2.5);
+	@include rem(margin-right, 0.25);
+	@include rem(margin-top, -0.4);
+	display: inline-block;
+	float: left;
+	text-align: center;
+	background: url("../img/twitter-icon.svg") no-repeat;
+	
+}
+
+.single-post__youtube-icon {
+	@extend .image-replacement;
+	@include rem(height, 2.5);
+	@include rem(width, 2.5);
+	@include rem(margin-right, 0.25);
+	@include rem(margin-top, -0.4);
+	display: inline-block;
+	float: left;
+	text-align: center;
+	background: url("../img/youtube-icon.svg") no-repeat;
+	
+}
+
+.single-post__instagram-icon {
+	@extend .image-replacement;
+	@include rem(height, 2.5);
+	@include rem(width, 2.5);
+	@include rem(margin-right, 0.25);
+	@include rem(margin-top, -0.4);
+	display: inline-block;
+	float: left;
+	text-align: center;
+	background: url("../img/instagram-icon.svg") no-repeat;
+	
+}
+
+.button--large i {
+	display: none;
+	@include breakpoint(papa-bear) { 
+		display: inline;
+	}
+}
+
+
+

@@ -1,0 +1,190 @@
+/*********************
+FORMS
+*********************/
+
+select {
+    width: 100%;
+    margin: 1.5em 0;
+}
+
+input.form-field,
+    textarea.form-field {
+        @include transition(all 0.2s ease-in-out);
+        border: 2px solid $mid-light-grey;
+        background: $mid-light-grey;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        -khtml-border-radius: 3px;
+        color: $dark-grey;
+        display: block;
+        //float: right;
+        font-family: $sans-serif;
+        margin: 1em 0;
+        padding: 0.5em;
+        width: 100%;
+
+        &:focus {
+            background: $white;
+            outline: 0px;
+        }
+    }
+
+.date__filter {
+	@include rem(margin, 0.75 0 0 0);
+	float: right;
+}
+
+.input-helper {
+	@include rem(margin-bottom, 0.25);
+	float: left;
+    position: relative;
+    display: inline-block;
+    //margin-bottom: 5px;
+  }
+.input-helper:before {
+        content: '';
+        display: block;
+        position: absolute;
+    }
+ 
+
+.input-helper--checkbox {
+    @include rem(padding-left, 1.25);
+}
+	
+ .input-helper--checkbox:before {
+ 	@include rem(width, 0.8);
+ 	@include rem(height, 0.8);
+ 	@include rem(top, 0.25);
+    left: 0;
+    //width: 13px;
+    //height: 13px;
+    background: $white;
+    border: 1px solid $white;
+	outline: 1px solid $mid-grey;
+    }
+
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label:before {
+        background: $blue;
+}
+
+.checkbox__container {
+    @include rem(padding, 0.5 0.75 0.5 0.5);
+    display: block;
+    float: left;
+    width: 50%;
+
+    &:last-of-type {
+        padding-right: 0;
+    }
+}
+
+/*********************
+MODAL FORMS
+*********************/
+
+
+.modal-form, .password-form {
+    @include rem(margin, 5 auto 0 auto);
+    @include rem(padding, 0.5);
+    @include rem(width, 46.875);
+    //position: absolute;
+    z-index: 10001;
+
+    form {
+        
+        margin: 0 auto;
+        width: 96%;
+
+    }
+
+    .form-top {
+        background: $blue-grey;
+        -moz-border-radius: 5px 5px 0px 0px;
+        -webkit-border-radius: 5px 5px 0px 0px;
+        border-radius: 5px 5px 0px 0px;
+        -khtml-border-radius: 5px 5px 0px 0px;
+        padding: 1em;
+
+        h3 {
+            color: $white;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+
+    .form-bottom {
+        background: $white;
+        -moz-border-radius: 0px 0px 5px 5px;
+        -webkit-border-radius: 0px 0px 5px 5px;
+        border-radius: 0px 0px 5px 5px;
+        -khtml-border-radius: 0px 0px 5px 5px;
+        padding: 1em;
+
+        a {
+            cursor: pointer;
+            display: block;
+            float: left;
+            font-size: 0.875em;
+            margin-top: 1.5em;
+        }
+
+        .submit {
+            border: 0px;
+            float: right;
+        }
+    }
+
+    label {
+        display: block;
+        float: left;
+        font-family: $sans-serif;
+        font-size: 0.875em;
+        font-weight: 500;
+        margin-top: 1.6em;
+        text-transform: uppercase;
+    }
+
+    
+
+    .submit {
+        width: 100%;
+    }
+}
+
+.select--small,
+input.form-field--small {
+    @include rem(width, 4);
+    @include rem(margin, 0.8 1.25 0 0.75);
+    float: left;
+}
+
+input.form-field--small {
+    @include rem(margin, 0.2 1.25 0 0.75);
+}
+
+/*********************
+VALIDATION
+*********************/
+
+.validation {
+    @include rem(font-size, 0.9);
+    @include rem(padding, 0.5);
+    border-radius: 3px;
+    display: block;
+    font-weight: 600;
+    width: 100%;
+}
+
+.validation--error {
+    background: $light-grey;
+    color: $red;
+}
+
+

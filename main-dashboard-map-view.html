@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Main Dashboard Map View | LifeRaft</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="library/css/style.css">
+        <link rel="stylesheet" href="library/css/jquery.mmenu.css">
+        <link rel="stylesheet" href="library/css/jquery.mmenu.searchfield.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="library/css/font-awesome.min.css">
+        <script src="library/js/vendor/modernizr-2.7.1.min.js"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js'></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script>
+            // This example displays a marker at the center of Australia.
+            // When the user clicks the marker, an info window opens.
+
+            function initialize() {
+
+              var myLatlng = new google.maps.LatLng(40.7048992,-74.01008606);
+              var mapOptions = {
+                zoom: 6,
+                center: myLatlng
+              };
+
+              var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+              var contentString = '<div id="content">'+
+                  '<div id="siteNotice">'+
+                  '</div>'+
+                  
+                  '<div class="head_map">'+
+                      '<div class="single-post__timestamp tw"><i class="fa fa-twitter"></i></div>'+
+                      '<div class="single-post__profile-image">'+
+                          '<img src="library/img/dummy-profile-001.jpg">'+
+                      '</div>'+
+                      '<h4><a href="">Emma Way <small>(@Emma2014)</small></a> </h4>'+
+                      '<div class="single-post__buttons">'+
+                            '<a data-tip="Flag this post" class="button button--post low tip" href=""><i class="fa fa-flag-checkered"></i></a>'+
+                            '<a data-tip="Share by Email" class="button button--post low tip" href=""><i class="fa fa-envelope-o"></i></a>'+
+                            '<a data-tip="Share by Text" class="button button--post low tip" href=""><i class="fa fa-comments"></i></a>'+
+                            '<a data-tip="Delete" class="button button--post low tip" href=""><i class="fa fa-trash-o"></i></a>'+
+                      '</div>'+
+                      //'<div class="icon">'+
+                      //      '<i class="fa fa-flag"></i>'+
+                      //      '<i class="fa fa-map-marker"></i>'+
+                      //'</div>'+
+                  '</div>'+
+                  '<div class="ct_map">'+
+                      '<small class="left"><i class="fa fa-calendar-o"></i> Sunday, June 22nd 2014, 12:42:18am ADT</small>'+
+                      '<small class="right"><i class="fa fa-map-marker"></i> Philadelphia, PA</small>'+
+                      '<br/>'+
+                      '<span class="keyword">Drivin drunk</span> ... classsic ;) but to whoever vehicle i hit i am sorry. :P'+
+                  '</div>'+
+                  //'<div class="btn_map">'+
+                   //   '<a href="" class="button button--large"><i class="fa fa-envelope-o"></i> Share by Email</a>'+
+                   //   '<a href="" class="button button--large"><i class="fa fa-comments"></i> Share By Text</a>'+
+                   //   '<a href="" class="button button--large float-right"><i class="fa fa-trash-o"></i> Delete</a>'+
+                  //'</div>'+
+                  '</div>';
+
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentString
+              });
+
+              var marker = new google.maps.Marker({
+                  position: myLatlng,
+                  map: map,
+                  icon: 'library/img/tw_marker.png'
+              });
+              google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
+              });
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+        </script>
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- Add your site or application content here 
+      <div class="loading-indicator">
+        <div class="loading-indicator-bg">
+            Loading
+        </div>
+        <div class="spinner">
+          <div class="spinner-bg"></div>
+        </div>
+      </div>-->
+
+        <header>
+            <div class="header__wrap slide-wrap">
+                <nav class="header__nav mb-slide-menu">
+                    <a href="#full-left-mb-menu" class="nav__link button--large"><i class="fa fa-reorder"></i></a>
+                </nav>
+                <div class="logo__block">
+                    <a href="" class=""><img src="library/img/liferaft-logo.png" width=""/></a>
+                </div><!-- .logo__block -->
+                <nav class="header__nav db-menu">
+                    <a href="" class="nav__link button--large"><i class="fa fa-info-circle"></i> Help</a>
+                    <a href="" class="nav__link button--large"><i class="fa fa-gear"></i> Settings</a>
+                    <a href="" class="nav__link button--large"><i class="fa fa-refresh"></i> Refresh</a>
+                    <a href="#keyword" class="nav__link button--large keyword-tgr"><i class="fa fa-filter"></i> Keywords</a>
+                </nav>
+                <div class="header__user-profile">
+                    <div class="header__user-profile--image">
+                        <img src="library/img/dummy-profile-005.jpg" alt="user logo" />
+                    </div><!-- .header__user-profile--image -->
+
+                     <div class="user-profile__details">
+                            <div class="user-profile__details--name">User Name</div>
+                            <div class="user-profile__details--organisation">User Organisation</div>
+                        </div><!-- .user-profile--details -->
+                    <a href="" class="nav__link button--large header__button--log-out mb-logout"><i class="fa fa-sign-out"></i> Log Out</a>
+                    <a href="#full-right-mb-menu" class="nav__link button--large header__button--log-out set"><i class="fa fa-cog"></i></a>
+                </div><!-- .header__user-profile -->
+            </div><!-- .wrap -->
+        </header>
+        <div class="wrap clearfix">
+            <div class="fixed-menu">
+                <ul>
+                    <li><a href="#option"><i class="fa fa-check-circle-o"></i> <span>Options</span></a></li>
+                    <li><a href="#keyword"><i class="fa fa-key"></i> <span>Keywords</span></a></li>
+                    <li><a href=""><i class="fa fa-refresh"></i> <span>Refresh</span></a></li>
+                </ul>
+            </div>
+            <div  id="full-right-mb-menu" class="right-bar-slide clearfix">
+                <nav class="left-bar__nav">
+                    <a class="left-bar__link" href=""><i class="fa fa-cogs"></i> <span>Setting</span></a>
+                    <a class="left-bar__link" href=""><i class="fa fa-question-circle"></i> <span>Help</span></a>
+                    <a class="left-bar__link" href=""><i class="fa fa-sign-out"></i> <span>Logout</span></a>
+                </nav>
+            </div>
+            <div  id="full-left-mb-menu" class="left-bar clearfix">
+                <nav class="left-bar__nav">
+                    <a class="left-bar__link current-state" href=""><i class="fa fa-dashboard"></i> <span>Live Posts</span></a>
+                    <a class="left-bar__link" href=""><span class="not">8</span><i class="fa fa-bell"></i> <span>Alerts</span></a>
+                    <a class="left-bar__link" href=""><span class="not">1,530</span><i class="fa fa-users"></i> <span>People</span></a>
+                    <a class="left-bar__link" href=""><i class="fa fa-share-alt"></i> <span>More Stats</span></a>
+                    <a class="left-bar__link" href=""><span class="not">129</span><i class="fa fa-flag"></i> <span>Flags</span></a>
+                </nav>
+            </div>
+            <div  id="full-left" class="left-bar clearfix">
+                <nav class="left-bar__nav">
+                    <a class="left-bar__link current-state" href=""><i class="fa fa-dashboard"></i> <span>Live Posts</span></a>
+                    <a class="left-bar__link" href=""><span class="not">8</span><i class="fa fa-bell"></i> <span>Alerts</span></a>
+                    <a class="left-bar__link" href=""><span class="not">1,530</span><i class="fa fa-users"></i> <span>People</span></a>
+                    <a class="left-bar__link" href=""><i class="fa fa-share-alt"></i> <span>More Stats</span></a>
+                    <a class="left-bar__link" href=""><span class="not">129</span><i class="fa fa-flag"></i> <span>Flags</span></a>
+                </nav>
+            </div>
+            <div class="main-content clearfix">
+                <div class="centre-content">
+                    <div class="main-content__sub-nav clearfix">
+                        <div class="sub-nav__view-control">
+                            <a href="" class="button button--large"><i class="fa fa-reorder"></i> List View</a>
+                            <a href="" class="button button--large"><i class="fa fa-map-marker"></i> Map View</a>
+                        </div><!-- .sub-nav__view-control -->
+                        <a id="showchannel" class="button button--channel"><i class="fa fa-th-large"></i> More Channels</a>
+                        <a id="showoption" class="button button--channel"><i class="fa fa-check-circle"></i> Advanced Options</a>
+                        <div class="channel__filter">
+                            <h3 class="inline-header">Filter By :</h3>
+                            <a href="" class="tw"><i class="fa fa-twitter"></i></a>
+                            <a href="" class="fb"><i class="fa fa-facebook-square"></i></a>
+                            <a href="" class="yt"><i class="fa fa-youtube-play"></i></a>
+                            <a href="" class="ins"><i class="fa fa-instagram"></i></a>
+                        </div><!-- .channel-filter -->
+                        <div class="search-ipt">
+                            <a href="#" id="search-togle"><i class="fa fa-search"></i></a>
+                        </div>
+                         <!--<select class="date__filter">
+                          <option value="last_week">Last Week</option>
+                          <option value="last_month">Last Month</option>
+                          <option value="last_6_months">Last 6 Months</option>
+                        </select>-->
+                         <!--<div class="extra-channels clearfix">
+                            <a href="">Pinterest</a>
+                            <a href="">Google+</a>
+                            <a href="">LinkedIn</a>
+                            <a href="">Tumblr</a>
+                          </div><!-- .extra-channels -->
+                    </div><!-- .main-content__sub-nav -->
+                    <div class="filter-bar search-bar">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="Search..."/>
+                    </div>
+                    <div class="filter-bar option-bar">
+                        <a href="" class="button button--large"><i class="fa fa-file-excel-o"></i> Export to CSV</a>
+                        <input type="text" placeholder="Author"/>
+                        <input type="text" placeholder="Keyword"/>
+                        <input type="text" placeholder="From Date"/>
+                        &nbsp; To &nbsp; 
+                        <input type="text" placeholder="To Date"/>
+                        <a href="" class="button button--large">Filter</a>
+                        <a href="" class="button button--large">Reset</a>
+                    </div>
+                    <div class="menu-channel" style="display:none;">
+                        <div class="channel__filter">
+                            <a href="" class="gp"><i class="fa fa-google-plus"></i></a>
+                            <a href="" class="in"><i class="fa fa-linkedin"></i></a>
+                            <a href="" class="pt"><i class="fa fa-pinterest"></i></a>
+                            <a href="" class="tm"><i class="fa fa-tumblr"></i></a>
+                            <a href="" class="add"><i class="fa fa-plus"></i></a>
+                        </div><!-- .channel-filter -->
+                    </div>
+                    <div class="map__container">
+                        <!--<style>.embed-container { position: relative; padding-bottom: 60%; padding-top: 30px; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.5401890041926!2d-63.590593999998674!3d44.64731398053392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b5a222a53d8a355%3A0x93e3620b12c5999e!2sNova+Scotia+College+of+Chiropractors!5e0!3m2!1sen!2sca!4v1397749992001' width='800' height='600' frameborder='0' style='border:0'></iframe></div>-->
+                        
+                    </div><!-- .map__container -->
+                    <div id="map-canvas" style="width: 100%; min-height: 920px"></div>
+                     
+                </div><!-- .centre-content -->
+                <div class="right-bar clearfix">
+                    <div class="chart-gauge-001"></div>
+                    <h3 class="text-center right-bar__title">Current Posts</h3>
+                    <div class="chart-gauge-002"></div>
+                    <h3 class="text-center right-bar__title">Urgency</h3>
+                    <h2 class="text-center"><i class="fa fa-filter"></i> Keywords</h2>
+                    <div class="keyword__list">
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxone">
+                        <label for="checkboxone" class="input-helper"> <strong>Bomb</strong></label>
+                        <div class="keyword__list--count">185</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxtwo">
+                        <label for="checkboxtwo" class="input-helper"> <strong>Guns</strong></label>
+                        <div class="keyword__list--count">175</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxthree">
+                        <label for="checkboxthree" class="input-helper"> <strong>Drugs</strong></label>
+                        <div class="keyword__list--count">159</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxfour">
+                        <label for="checkboxfour" class="input-helper"> <strong>Gang</strong></label>
+                        <div class="keyword__list--count">136</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxfive">
+                        <label for="checkboxfive" class="input-helper"> <strong>Pistol</strong></label>
+                        <div class="keyword__list--count">128</div>
+                    </div><!-- .keyword__list--item -->
+                </div><!-- .keyword__list -->
+                <a href="" class="button button--small"><i class="fa fa-refresh"></i> Load More Keywords</a>
+            </div><!-- .right-bar -->
+            </div><!-- .main-content -->
+        </div><!-- .wrap -->
+
+        <div class="overlay hidden animated">
+
+         <div class="modal-form hidden animated" id="share-by-email">
+            <form class="hidden">
+                <div class="form-top">
+                    <h3>Send This Post as an Email</h3>
+                </div><!-- .form-top -->
+                <div class="form-bottom">
+                    <div class="validation validation--error animated shake">This field is required</div>
+                    <input type="email" id="email" name="email" size="15" maxlength="50" value="" class="form-field" placeholder="Email Recipient" autofocus />
+                    <div class="clearfix"></div>
+                    <div class="validation validation--error animated shake">This field is required</div>
+                    <input type="text" name="subject" id="subject" size="15" maxlength="30" value="" class="form-field" placeholder="Subject"/>
+                    <div class="clearfix"></div>
+                    <textarea name="message" id="message" size="15" maxlength="30" value="" class="form-field" placeholder="Message"/></textarea>
+                    <div class="clearfix"></div>
+                    <input type="submit" class="button button--large" value="Send Email" /> 
+                    <div class="clearfix"></div>      
+                </div><!-- .form-bottom -->       
+            </form>
+        </div><!-- .modal-form -->
+
+        <div class="modal-form hidden animated" id="share-by-text">
+            <form class="hidden">
+                <div class="form-top">
+                    <h3>Send This Post as a Text Message</h3>
+                </div><!-- .form-top -->
+                <div class="form-bottom">
+                    <div class="validation validation--error animated shake">This field is required</div>
+                    <input type="tel" id="tel" name="tel" size="11" maxlength="11" value="" class="form-field" placeholder="Phone Number" autofocus />
+                    <div class="clearfix"></div>
+                    <div class="validation validation--error animated shake">This field is required</div>
+                    <textarea name="subject" id="subject" size="15" maxlength="30" value="" class="form-field" placeholder="Message"/></textarea>
+                    <div class="clearfix"></div>
+                    <input type="submit" class="button button--large" value="Send Text Message" /> 
+                    <div class="clearfix"></div>      
+                </div><!-- .form-bottom -->       
+            </form>
+        </div><!-- .modal-form -->
+        <div id="keyword" class="slide-keyword">
+            <div class="clearfix">
+                    <h2 class="text-center"><i class="fa fa-filter"></i> Keywords</h2>
+                    <div class="keyword__list">
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxone">
+                        <label for="checkboxone" class="input-helper"> <strong>Bomb</strong></label>
+                        <div class="keyword__list--count">185</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxtwo">
+                        <label for="checkboxtwo" class="input-helper"> <strong>Guns</strong></label>
+                        <div class="keyword__list--count">175</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxthree">
+                        <label for="checkboxthree" class="input-helper"> <strong>Drugs</strong></label>
+                        <div class="keyword__list--count">159</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxfour">
+                        <label for="checkboxfour" class="input-helper"> <strong>Gang</strong></label>
+                        <div class="keyword__list--count">136</div>
+                    </div><!-- .keyword__list--item -->
+                    <div class="keyword__list--item clearfix squaredThree">
+                        <input type="checkbox" id="checkboxfive">
+                        <label for="checkboxfive" class="input-helper"> <strong>Pistol</strong></label>
+                        <div class="keyword__list--count">128</div>
+                    </div><!-- .keyword__list--item -->
+                </div><!-- .keyword__list -->
+                <a href="" class="button button--small"><i class="fa fa-refresh"></i> Load More Keywords</a>
+            </div><!-- .right-bar -->
+        </div>
+        <div id="option" class="slide-option">
+            <div class="main-content__sub-nav clearfix">
+                <div class="sub-nav__view-control">
+                    <a href="" class="button button--large"><i class="fa fa-reorder"></i> List View</a>
+                    <a href="" class="button button--large"><i class="fa fa-map-marker"></i> Map View</a>
+                </div><!-- .sub-nav__view-control -->
+                <a id="showchannel" class="button button--channel"><i class="fa fa-th-large"></i> More Channels</a>
+                <a id="showoption" class="button button--channel"><i class="fa fa-check-circle"></i> Advanced Options</a>
+                <div class="channel__filter">
+                    <h3 class="inline-header">Filter By :</h3>
+                    <a href="" class="tw"><i class="fa fa-twitter"></i></a>
+                    <a href="" class="fb"><i class="fa fa-facebook-square"></i></a>
+                    <a href="" class="yt"><i class="fa fa-youtube-play"></i></a>
+                    <a href="" class="ins"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="filter-bar option-bar">
+                <a href="" class="button button--large"><i class="fa fa-file-excel-o"></i> Export to CSV</a>
+                <input type="text" placeholder="Author"/>
+                <input type="text" placeholder="Keyword"/>
+                <input type="text" placeholder="From Date"/>
+                &nbsp; To &nbsp; 
+                <input type="text" placeholder="To Date"/>
+                <a href="" class="button button--large">Filter</a>
+                <a href="" class="button button--large">Reset</a>
+            </div>
+            <div class="menu-channel" style="display:none;">
+                <div class="channel__filter">
+                    <a href="" class="gp"><i class="fa fa-google-plus"></i></a>
+                    <a href="" class="in"><i class="fa fa-linkedin"></i></a>
+                    <a href="" class="pt"><i class="fa fa-pinterest"></i></a>
+                    <a href="" class="tm"><i class="fa fa-tumblr"></i></a>
+                    <a href="" class="add"><i class="fa fa-plus"></i></a>
+                </div><!-- .channel-filter -->
+            </div>
+        </div>
+
+        </div><!-- .overlay -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="library/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="library/js/main.js"></script>
+        <script src="library/js/tipr.js"></script>
+        <script src="library/js/dropit.js"></script>
+        <script src="library/js/jquery.mmenu.min.js"></script>
+        <script src="library/js/jquery.mmenu.searchfield.min.js"></script>
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+        <script>
+            $( ".button--channel" ).click(function() {
+              $( ".extra-channels" ).slideToggle( "slow", function() {
+                // Animation complete.
+              });
+            });
+            $(document).ready(function() {
+                $('#option #showchannel').click(function() {
+                        $('.menu-channel').slideToggle("fast");
+                });
+                
+                $('#showchannel').click(function() {
+                        $('.menu-channel').slideToggle("fast");
+                });
+                
+                $('#option #showoption').click(function() {
+                        $('.option-bar').slideToggle("fast");
+                });
+                
+                $('#showoption').click(function() {
+                        $('.option-bar').slideToggle("fast");
+                });
+                
+                $('#option #search-togle').click(function() {
+                        $('.search-bar').slideToggle("fast");
+                });
+                
+                $('#search-togle').click(function() {
+                        $('.search-bar').slideToggle("fast");
+                });
+            });
+                window.onload = window.onresize = function () {
+                    var left = document.getElementById("full-left");
+                    var height = window.innerHeight;
+                    left.style.height = height + "px";
+                }
+            $(document).ready(function() {
+                 $('.tip').tipr();
+                 $('.menu').dropit();
+                 $('#full-left-mb-menu').mmenu({
+                      offCanvas: {
+                         position  : "left",
+                         zposition : "front",
+                         classes: "mm-light"
+                      }
+                 });
+                 $('#full-right-mb-menu').mmenu({
+                      searchfield: {
+                          add : true,
+                          placeholder: "Search..."
+                      },
+                      offCanvas: {
+                         position  : "right",
+                         zposition : "front",
+                         classes: "mm-light"
+                      }
+                 });
+                 $('#keyword').mmenu({
+                      offCanvas: {
+                         position  : "bottom",
+                         zposition : "front",
+                         classes: "mm-light"
+                      }
+                 });
+                 $('#option').mmenu({
+                      offCanvas: {
+                         position  : "bottom",
+                         zposition : "front",
+                         classes: "mm-light"
+                      }
+                 });
+            });
+        </script>
+
+    </body>
+</html>

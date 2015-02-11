@@ -1,0 +1,78 @@
+/*********************
+HEADER
+*********************/
+
+header {
+	@extend .clearfix;
+	background: $white;
+	display: block;
+	width: 100%;
+}
+
+.logo__block {
+	@include rem(padding, 0.75 0);
+	@include rem(width, 10);
+	@include breakpoint(papa-bear) { 
+		@include rem(width, 14.375);
+	}
+	float: left;
+}
+
+.header__logo {
+	@extend .image-replacement;
+	@include rem(height, 3.5);
+	@include rem(width, 8.90625);
+	background-image: url('../img/liferaft-logo.png');
+	background-image: url('../img/liferaft-logo.svg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0 auto;
+}
+
+.header__nav {
+	float: left;
+}
+
+.nav__link {
+	@extend .button;
+	@include rem(margin, 0.9 0.75 0.9 0);
+	float: left;
+	vertical-align: top;
+}
+
+.header__user-profile {
+	float: right;
+}
+
+.header__user-profile--image {
+	@include rem(height, 3.5);
+	@include rem(margin, 0.75 0.75 0.75 0);
+	@include rem(width, 3.5);
+	background: $white;
+	border-radius: 5px;
+	display: block;
+	float: left;
+}
+
+.user-profile__details {
+	@include rem(margin, 0.75 1.5 0.75 0);
+	display: block;
+	float: left;
+}
+
+.user-profile__details--name {
+	@include rem(font-size, 1.35);
+	//color: $white;
+	font-weight: 600;
+}
+.user-profile__details--organisation {
+	@include rem(font-size, 1);
+	//color: $light-grey;
+	font-weight: 300;
+}
+
+.header__button--log-out {
+	@include rem(padding, 0.8 1.5);
+	float: right;
+}

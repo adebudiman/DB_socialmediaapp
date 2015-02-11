@@ -1,0 +1,20 @@
+/*********************
+FOOTER
+*********************/
+
+footer {
+	@include rem(padding, 0.75);
+	//background: $darkish-grey;
+	color: $darkish-grey;
+	text-align: center;
+	width: 100%;
+}
+
+.footer__nav {
+	//float: right;
+}
+
+a.footer__link {
+	@include rem(margin-left, 1);
+	//color: $darkish-grey;
+}

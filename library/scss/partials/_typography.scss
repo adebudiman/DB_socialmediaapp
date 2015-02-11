@@ -1,0 +1,101 @@
+/*********************
+TYPOGRAPHY
+*********************/
+
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	font-family: $sans-serif;
+	text-rendering: optimizelegibility;
+	font-weight: 500;
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
+
+	/* removing text decoration from all headline links */
+	a {
+		text-decoration: none;
+	}
+}
+
+h1, .h1 {
+	
+}
+
+h2, .h2 {
+	
+}
+
+h3, .h3 {
+	@include rem(font-size, 1);
+	@include rem(margin, 0.5);
+	color: $dark-grey;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+h4, .h4 {
+	@include rem(font-size, 1.15);
+	@include rem(margin, 0.5 0.5 0.5 0);
+	color: $dark-grey;
+	font-weight: 600;
+}
+
+h5, .h5 {
+
+}
+
+.inline-header {
+	display: none;
+	vertical-align: middle;
+	@include breakpoint(papa-bear) { 
+		@include rem(margin-top, 0.8);
+		display: inline-block;
+		float: left;
+	}
+}
+
+.single-post__timestamp {
+	@include rem(font-size, 1.15);
+	@include rem(margin-top, 0.4);
+	@include rem(margin-bottom, 0.4);
+	@include rem(margin-right, 0.4);
+	display: inline-block;
+	float: left;
+	font-weight: 700;
+	@include breakpoint(papa-bear) { 
+		@include rem(margin-bottom, 0);
+		@include rem(margin-right, 0);
+	}
+}
+
+.keyword {
+	color: $red;
+	font-weight: 700;
+}
+
+.entry-highlight {
+	@include rem(padding, 0.5);
+	@include rem(margin-bottom, 0.75);
+	color: $dark-grey;
+	background: $mid-grey;
+	border-radius: 3px;
+	display: block;
+	color: $white;
+	width: 100%;
+
+	h3 {
+		color: $white;
+		font-weight: 500;
+	}
+}
+
+p.text--small {
+	@include rem(font-size, 0.9);
+	@include rem(margin-top, 0.8);
+	margin-bottom: 0;
+}

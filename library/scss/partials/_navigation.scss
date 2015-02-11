@@ -1,0 +1,33 @@
+/*********************
+NAVIGATION
+*********************/
+
+
+
+/*********************
+LEFT BAR NAVIGATION
+*********************/
+
+.left-bar__nav {
+	width: 100%;
+}
+
+.left-bar__link {
+	@include rem(font-size, 0.75);
+	@include rem(padding, 0.2);
+	@include rem(margin-bottom, 1.5);
+	border-radius: 5px;
+	display: block;
+	font-weight: 300;
+	width: 100%;
+}
+
+a.left-bar__link:hover {
+	color: $white;
+	background-color: $blue-grey;
+}
+
+
+
+
+

@@ -1,0 +1,32 @@
+/*********************
+DASHBOARD
+*********************/
+
+/*********************
+GAUGE
+*********************/
+
+.chart-gauge-001,
+.chart-gauge-002 {
+  @include rem(width, 12.5);
+  display: none;
+  margin: 0;
+
+  @include breakpoint(papa-bear) { 
+    display: block;
+    margin: 0 auto -100px;
+  }
+}
+
+.chart-color1  {
+  fill: #c00000;
+}
+
+.value-color1{
+  fill: #da6969;
+}
+
+.needle,
+.needle-center {
+  fill: $black;
+}
